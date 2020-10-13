@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+        <head>
+                <title>Image Loader Yao Jiang</title>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link rel="stylesheet" href="../static/assets/css/main.css" />
+        </head>
+        <body>
+
+                <!-- Header -->
+                        <header id="header">
+                                <div class="logo"><a href="#">Image Loader <span>by Yao Jiang</span></a></div>
+                        </header>
+
+                <!-- Main -->
+                        <section id="main">
+                                <div class="inner">
+
+                                <!-- One -->
+                                <section id="one" class="wrapper style2">
+                                        {% with messages = get_flashed_messages() %}
+                                        {% if messages %}
+                                        <section class=flashes>
+                                        {% for message in messages %}
+                                                {% if 'success' in message %}
+                                                <h4 style="color:green;">{{ message }}</h4>
+                                                {% elif 'failed' in message %}
+                                                <h4 style="color:red;">{{ message }}</h4>
+                                                {% endif %}
+                                        {% endfor %}
+                                        </section>
+                                        {% endif %}
+                                        {% endwith %}
+                                        <header>
+                                                <h2>Upload your image</h2>
+                                                <p>To our image bank</p>
+                                        </header>
+                                        <br />
+                                                <h4>Upload the image file and provide a description, then click on the "Enter" button.</h4>
+                                                <form method=post action="/" enctype=multipart/form-data>
+                                                        <br />
+                                                        <div class="12u$">
+                                                                <input type="file" name="file" />
+                                                                <textarea name="message" id="message" placeholder="Provide a description for the image" rows="4"></textarea>
+                                                        </div>
+                                                        <br />
+                                                        <input type=submit value=Enter>
+                                                </form>
+                                        <br />
+                                </section>
+
+
+                        </section>
+
+                <!-- Footer -->
+				<footer id="footer">
+					<div class="container">
+							<ul class="icons">
+									<li><a href="https://twitter.com/yaojian64222164" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.facebook.com/profile.php?id=100001566004545" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+									<li><a href="https://www.instagram.com/florentjiang/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="mailto: yaojiang.tls@gmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+							</ul>
+					</div>
+					<div class="copyright">
+							Copyright &copy; Yao Jiang 2020
+					</div>
+			</footer>
+
+	<!-- Scripts -->
+			<script src="../static/assets/js/jquery.min.js"></script>
+			<script src="../static/assets/js/jquery.poptrox.min.js"></script>
+			<script src="../static/assets/js/skel.min.js"></script>
+			<script src="../static/assets/js/util.js"></script>
+			<script src="../static/assets/js/main.js"></script>
+
+</body>
+</html>

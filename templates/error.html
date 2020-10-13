@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+        <head>
+                <title>500</title>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link rel="stylesheet" href="../static/assets/css/main.css" />
+        </head>
+        <body>
+
+                <!-- Header -->
+                        <header id="header">
+                                <div class="logo"><a href="#">{{e}}</a></div>
+                        </header>
+
+                <!-- Main -->
+                        <section id="main">
+                                <div class="inner">
+
+                                <!-- One -->
+                                <section id="one" class="wrapper style2">
+                                        <br />
+                                                {% if e == 413 %}
+                                                <h3>Image file too large, cannot exceed 500k</h3>
+                                                {% else %}
+                                                <h3>Sorry, it is our fault</h3>
+                                                {% endif %}
+                                                <a href="http://www.dataprocessor.online/"><h2>Try again<h2></a>
+                                        <br />
+                                </section>
+
+
+                        </section>
+        </body>
+</html>

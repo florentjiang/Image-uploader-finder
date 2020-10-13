@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+        <head>
+                <title>Image Loader Yao Jiang</title>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link rel="stylesheet" href="../static/assets/css/main.css" />
+        </head>
+        <body>
+
+                <!-- Header -->
+                        <header id="header">
+                                <div class="logo"><a href="#">Image Finder <span>by Yao Jiang</span></a></div>
+                        </header>
+
+                <!-- Main -->
+                        <section id="main">
+                                <div class="inner">
+
+                                <!-- One -->
+                                <section id="one" class="wrapper style2">
+                                        {% with messages = get_flashed_messages() %}
+                                        {% if messages %}
+                                        <section class=flashes>
+                                        {% for message in messages %}
+                                                {% if 'success' in message %}
+                                                <h4 style="color:green;">{{ message }}</h4>
+                                                {% elif 'failed' in message %}
+                                                <h4 style="color:red;">{{ message }}</h4>
+                                                {% endif %}
+                                        {% endfor %}
+                                        </section>
+                                        {% endif %}
+                                        {% endwith %}
+                                        <header>
+                                                <h2>Find the image</h2>
+                                                <p>From our image bank</p>
+                                        </header>
+                                        <br />
+                                                <h4>Provide search criteria including min and max file size, file format and description, then click on the "Search" button.</h4>
+                                                <form method=post action="/search" enctype=multipart/form-data>
+                                                        <br />
+                                                        <div class="12u$">
+                                                                <input type="text" name="minsize" id="minsize" placeholder="Min file size (in KB)" />
+                                                                <br />
+                                                                <input type="text" name="maxsize" id="maxsize" placeholder="Max file size (in KB)" />
+                                                                <br />
+                                                                <input type="text" name="format" id="format" placeholder="File format" />
+                                                                <br />
+                                                                <textarea name="desc" id="desc" placeholder="Description" row=2></textarea>
+                                                        </div>
+                                                        <br />
+                                                        <input type=submit value=Search>
+                                                </form>
+                                        <br />
+                                        {% if search == False%}
+                                        <h3>Existing files</h3>
+                                        {% else %}
+                                        <h3>Search results</h3>
+                                        {% endif %}
+                                                <div class="table-wrapper">
+                                                        <table>
+                                                        <thead>
+                                                                <tr>
+                                                                        <th>Description</th>
+                                                                        <th>Type</th>
+                                                                        <th>Size</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                {%for i in range(length)%}
+                                                                <tr>
+                                                                        <td>{{results[i][0]}}</td>
+                                                                        <td>{{results[i][1]}}</td>
+                                                                        <td>{{results[i][2]}}</td>
+                                                                </tr>
+                                                                {%endfor%}
+                                                                </tbody>
+                                                                </table>
+                                                </div>
+                                </section>
+
+
+                        </section>
+
+                <!-- Footer -->
+                        <footer id="footer">
+                                <div class="container">
+                                        <ul class="icons">
+                                                <li><a href="https://twitter.com/yaojian64222164" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                                                <li><a href="https://www.facebook.com/profile.php?id=100001566004545" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                                                <li><a href="https://www.instagram.com/florentjiang/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                                                <li><a href="mailto: yaojiang.tls@gmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+                                        </ul>
+                                </div>
+                                <div class="copyright">
+                                        Copyright &copy; Yao Jiang 2020
+                                </div>
+                        </footer>
+
+                <!-- Scripts -->
+                        <script src="../static/assets/js/jquery.min.js"></script>
+                        <script src="../static/assets/js/jquery.poptrox.min.js"></script>
+                        <script src="../static/assets/js/skel.min.js"></script>
+                        <script src="../static/assets/js/util.js"></script>
+                        <script src="../static/assets/js/main.js"></script>
+
+        </body>
+</html>
